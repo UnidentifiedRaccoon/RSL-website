@@ -1,0 +1,20 @@
+.layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(245, 245, 245, 1);
+}
+
+.main {
+    box-sizing: border-box;
+    padding: 20px;
+    width: 1280px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}

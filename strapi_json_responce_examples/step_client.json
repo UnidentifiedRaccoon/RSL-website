@@ -1,0 +1,42 @@
+
+
+{
+  "from": {
+    "data": {
+      "id": 1,
+      "attributes": {
+        "title": "О чем этот урок",
+        "description": "Этот урок об истории английского языка",
+        "createdAt": "2023-12-18T18:44:17.917Z",
+        "updatedAt": "2024-04-02T08:15:56.070Z",
+        "publishedAt": null,
+        "status": {
+          "id": 3,
+          "status": "DEVELOP"
+        },
+        "content": [
+          {
+            "id": 1,
+            "__component": "content-components.text",
+            "text": "В данном уроке вы ознакомитесь с тем, что такое жестовый язык и узнаете как отличаются жестовые языки разных стран."
+          }
+        ],
+        "type": {
+          "id": 2,
+          "type": "READ"
+        }
+      }
+    },
+    "meta": {
+    }
+  },
+
+  "to": {
+    "id": 1,
+    "title": 'О чем этот урок',
+    "description": 'Этот урок об истории английского языка',
+    "status": 'DEVELOP', // enum "DEVELOP" | "DRAFT" | "RELEASE"
+    "type": 'READ', // enum "READ" | "PRACTICE" | "WATCH" | "TEST"
+    "content": 'В данном уроке вы ознакомитесь с тем, что такое жестовый язык и узнаете как отличаются жестовые языки разных стран.'
+  }
+}

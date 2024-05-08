@@ -1,0 +1,62 @@
+// 20240415204202
+// http://51.250.97.205:1337/api/lectures/1?populate=*
+
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "title": "Английский язык",
+      "description": "Что из себя представляет английский язык? Насколько он актуален? Как его легче изучать?",
+      "createdAt": "2023-12-18T18:40:41.500Z",
+      "updatedAt": "2024-04-02T08:15:24.754Z",
+      "publishedAt": null,
+      "status": {
+        "id": 2,
+        "status": "DEVELOP"
+      },
+      "steps": {
+        "data": [
+          {
+            "id": 1,
+            "attributes": {
+              "title": "О чем этот урок",
+              "description": "Этот урок об истории английского языка",
+              "createdAt": "2023-12-18T18:44:17.917Z",
+              "updatedAt": "2024-04-02T08:15:56.070Z",
+              "publishedAt": null,
+              "status": {
+                "id": 3,
+                "status": "DEVELOP"
+              },
+              "type": {
+                "id": 2,
+                "type": "READ"
+              }
+            }
+          },
+          {
+            "id": 2,
+            "attributes": {
+              "title": "Видeо - объяснение",
+              "description": null,
+              "createdAt": "2023-12-18T18:45:00.129Z",
+              "updatedAt": "2023-12-18T19:02:20.996Z",
+              "publishedAt": null,
+              "status": {
+                "id": 3,
+                "status": "DEVELOP"
+              },
+              "type": {
+                "id": 2,
+                "type": "READ"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "meta": {
+
+  }
+}

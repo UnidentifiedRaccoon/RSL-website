@@ -1,0 +1,1 @@
+export {PageLecture} from './PageLecture';

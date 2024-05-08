@@ -1,0 +1,68 @@
+{
+  "form": {
+    "data": {
+      "id": 1,
+      "attributes": {
+        "title": "Введение",
+        "description": "Данный модуль призван познакомить вас с английским языком",
+        "createdAt": "2023-12-18T18:11:11.905Z",
+        "updatedAt": "2024-04-02T08:16:33.958Z",
+        "publishedAt": null,
+        "lectures": {
+          "data": [
+            {
+              "id": 1,
+              "attributes": {
+                "title": "Английский язык",
+                "description": "Что из себя представляет английский язык? Насколько он актуален? Как его легче изучать?",
+                "createdAt": "2023-12-18T18:40:41.500Z",
+                "updatedAt": "2024-04-02T08:15:24.754Z",
+                "publishedAt": null
+              }
+            },
+            {
+              "id": 2,
+              "attributes": {
+                "title": "Начало пути",
+                "description": "Приветствие в английском языке",
+                "createdAt": "2024-03-25T23:04:44.624Z",
+                "updatedAt": "2024-04-02T08:18:35.227Z",
+                "publishedAt": null
+              }
+            }
+          ]
+        },
+        "status": {
+          "id": 1,
+          "status": "DEVELOP"
+        }
+      }
+    },
+    "meta": {
+
+    }
+  },
+
+  "to": {
+    "id": 1,
+    "title": "Введение",
+    "description": "Данный модуль призван познакомить вас с английским языком",
+    "status": 'DEVELOP', // enum "DEVELOP" | "DRAFT" | "RELEASE",
+    "lectures": [
+      {
+        "id": 1,
+        "title": "Английский язык",
+        "description": "Что из себя представляет английский язык? Насколько он актуален? Как его легче изучать?",
+        "?status": 'DEVELOP', // enum "DEVELOP" | "DRAFT" | "RELEASE",
+        "??stepsCount": 'number',
+      },
+      {
+        "id": 2,
+        "title": "Начало пути",
+        "description": "Приветствие в английском языке",
+        "?status": 'DEVELOP', // enum "DEVELOP" | "DRAFT" | "RELEASE",
+        "??stepsCount": 'number',
+      }
+    ]
+  }
+}

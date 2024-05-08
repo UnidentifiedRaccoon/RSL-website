@@ -1,0 +1,7 @@
+.card {
+    background-color: #e0b9ff;
+    border-radius: 32px;
+    padding: 20px;
+
+    aspect-ratio: 1;
+}

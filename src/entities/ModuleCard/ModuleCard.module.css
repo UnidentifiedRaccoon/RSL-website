@@ -1,0 +1,35 @@
+.cardWrapper {
+    padding-top: 10px;
+    text-decoration: none;
+}
+
+.card {
+    box-sizing: border-box;
+    min-height: 360px;
+    transition: all 500ms;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.cardWrapper:hover .card {
+    transform: translateY(-10px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.activeCard {
+    transform: translateY(-10px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.statsWrapper {
+    margin-top: auto;
+}
+
+.stats {
+    opacity: 0;
+    transition: all 500ms;
+}
+
+.cardWrapper:hover .stats {
+    opacity: 1
+}

@@ -1,0 +1,81 @@
+// 20240415210757
+// http://51.250.97.205:1337/api/modules?publicationState=preview&populate=*
+
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "title": "Введение",
+        "description": "Данный модуль призван познакомить вас с английским языком",
+        "createdAt": "2023-12-18T18:11:11.905Z",
+        "updatedAt": "2024-04-02T08:16:33.958Z",
+        "publishedAt": null,
+        "lectures": {
+          "data": [
+            {
+              "id": 1,
+              "attributes": {
+                "title": "Английский язык",
+                "description": "Что из себя представляет английский язык? Насколько он актуален? Как его легче изучать?",
+                "createdAt": "2023-12-18T18:40:41.500Z",
+                "updatedAt": "2024-04-02T08:15:24.754Z",
+                "publishedAt": null
+              }
+            },
+            {
+              "id": 2,
+              "attributes": {
+                "title": "Начало пути",
+                "description": "Приветствие в английском языке",
+                "createdAt": "2024-03-25T23:04:44.624Z",
+                "updatedAt": "2024-04-02T08:18:35.227Z",
+                "publishedAt": null
+              }
+            }
+          ]
+        },
+        "status": {
+          "id": 1,
+          "status": "DEVELOP"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "title": "Test module 2",
+        "description": "Test module 2 description",
+        "createdAt": "2024-03-27T16:21:32.566Z",
+        "updatedAt": "2024-03-27T16:24:13.668Z",
+        "publishedAt": null,
+        "lectures": {
+          "data": [
+            {
+              "id": 3,
+              "attributes": {
+                "title": "Test lecture 3",
+                "description": "Test lecture 3 - description",
+                "createdAt": "2024-03-27T16:24:02.348Z",
+                "updatedAt": "2024-03-27T16:24:39.906Z",
+                "publishedAt": null
+              }
+            }
+          ]
+        },
+        "status": {
+          "id": 7,
+          "status": "DEVELOP"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 2
+    }
+  }
+}

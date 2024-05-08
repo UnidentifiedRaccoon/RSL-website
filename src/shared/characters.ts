@@ -1,0 +1,3 @@
+export enum Characters {
+    doubleTilde = '≈'
+}

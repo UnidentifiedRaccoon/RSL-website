@@ -1,0 +1,1 @@
+export {PageModule} from './PageModule';
