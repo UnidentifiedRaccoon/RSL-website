@@ -5,10 +5,9 @@ import 'normalize.css';
 import './index.css'
 
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
-import {BreedPage, ErrorPage, PageLecture} from "./pages";
+import {BreedPage, ErrorPage, StepPage} from "./pages";
 import {Provider} from "react-redux";
 import {store} from "./features/store/store";
-import {PageStep} from "./pages/PageStep";
 
 const router = createBrowserRouter([
     {
@@ -30,16 +29,9 @@ const router = createBrowserRouter([
             },
         ],
     },
-    // {
-    //     element: <PageModule />,
-    // },
     {
-        path: "/lecture/:id",
-        element: <PageLecture/>,
-    },
-    {
-        path: "/step/:id",
-        element: <PageStep/>,
+        path: '/step/:id',
+        element: <StepPage/>,
     },
 ]);
 

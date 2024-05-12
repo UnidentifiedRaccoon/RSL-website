@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import type {PayloadAction} from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 import {AppDispatch, RootState} from "../store";
 import {ReleaseStatusEnum} from "../../types/strapi/components/common-enums/release-status";
 import {LectureData} from "../../types/store/content/lecture";
@@ -19,6 +19,7 @@ export const lectureState = createSlice({
     initialState,
     reducers: {
         updateLecture: (state, {payload}: PayloadAction<LectureData>) => {
+            state.id = payload.id
             state.title = payload.title
             state.description = payload.description
             state.status = payload.status
@@ -27,7 +28,7 @@ export const lectureState = createSlice({
     },
 })
 
-export const { updateLecture } = lectureState.actions
+export const {updateLecture} = lectureState.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectLecture = (state: RootState) => state.lecture
@@ -37,7 +38,7 @@ export const loadLecture = (id: number) => {
         return getLecture(id).then((lecture) => {
             const parsed = lectureParser(lecture)
             dispatch(updateLecture(parsed))
-            console.log({type: 'info', body: 'success loadLecture'})
+            // console.log({type: 'info', body: 'success loadLecture'})
         }).catch((err) => console.log({type: 'error', body: err.message}))
     }
 }

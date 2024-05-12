@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {List, ListItem, ListItemButton, ListItemContent, Stack, Typography} from "@mui/joy";
+import {Box, CircularProgress, List, ListItem, ListItemButton, ListItemContent, Stack, Typography} from "@mui/joy";
 import {KeyboardArrowRight} from "@mui/icons-material";
 import {capitalizeFirstLetter} from "../../../../features/libs/helpers/string";
 
@@ -7,13 +7,14 @@ import styles from "./NavigationList.module.css"
 import {Link} from "react-router-dom";
 
 interface LecturesListProps {
+    prefixUrl: string
     items: { id: number, title: string }[]
 }
 
-export const NavigationList: FC<LecturesListProps> = ({items}) => {
+export const NavigationList: FC<LecturesListProps> = ({prefixUrl, items}) => {
     const elems = items.map((item, index) => {
         return (
-            <Link className={styles.itemLink} to={`lecture/${item.id}`}>
+            <Link className={styles.itemLink} to={`${prefixUrl}/${item.id}`} key={`${item.id}_${index}`}>
                 <ListItem>
                     <ListItemButton
                         sx={{
@@ -48,7 +49,21 @@ export const NavigationList: FC<LecturesListProps> = ({items}) => {
 
     return (
         <List>
-            {elems}
+            {elems.length > 0 ? elems :
+                <Box className={styles.list}
+                     width="100%"
+                     height="50%"
+                     display="flex"
+                     alignItems="center"
+                     justifyContent="center"
+                >
+                    <CircularProgress
+                        color="primary"
+                        size="md"
+                        variant="solid"
+                    />
+                </Box>
+            }
         </List>
     )
 }

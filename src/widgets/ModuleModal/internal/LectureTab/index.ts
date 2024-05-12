@@ -1,0 +1,1 @@
+export {LectureTab} from './LectureTab';

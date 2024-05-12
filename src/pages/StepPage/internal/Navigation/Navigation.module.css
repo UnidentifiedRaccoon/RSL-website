@@ -1,0 +1,12 @@
+.link {
+    text-decoration: none;
+    color: white;
+    padding: 20px 24px;
+    background-color: #262626;
+    border-radius: 8px;
+    transition: 0.2s all;
+}
+
+.link:hover {
+    background-color: #000000;
+}

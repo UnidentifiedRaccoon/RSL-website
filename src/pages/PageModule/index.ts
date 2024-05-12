@@ -1,1 +1,0 @@
-export {PageLecture} from './PageLecture';

@@ -1,3 +1,4 @@
-export {ModuleList} from './ModuleList'
-export {LectureList} from './LectureList'
-export {StepList} from './StepList'
+export {ModuleList} from './ModuleList';
+export {ModuleModal} from "./ModuleModal";
+export {StepContent} from './StepContent';
+export {ContentBlock} from './ContentBlock';

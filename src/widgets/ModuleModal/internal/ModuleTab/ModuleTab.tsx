@@ -1,10 +1,10 @@
 import {DialogTitle, Typography} from "@mui/joy";
 import {useSelector} from "react-redux";
+import {selectModule} from "../../../../features/store/content/module";
 import {NavigationList} from "../NavigationList";
-import {selectLecture} from "../../../../features/store/content/lecture";
 
-export const LectureTab = () => {
-    const {title, steps} = useSelector(selectLecture)
+export const ModuleTab = () => {
+    const {title, lectures} = useSelector(selectModule)
 
     return (
         <>
@@ -14,7 +14,7 @@ export const LectureTab = () => {
                 </Typography>
             </DialogTitle>
             Темы курса
-            {steps && <NavigationList items={steps} prefixUrl="/step"/>}
+            {lectures && <NavigationList items={lectures} prefixUrl="lecture"/>}
         </>
     )
 }

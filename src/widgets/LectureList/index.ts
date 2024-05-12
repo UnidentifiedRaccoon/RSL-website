@@ -1,1 +1,0 @@
-export {LectureList} from './LectureList'

@@ -1,7 +1,5 @@
 import {Layout} from "../Layout";
-import {ModuleList} from "../../widgets";
-import {ModuleModal} from "../../widgets/ModuleModal";
-
+import {ModuleList, ModuleModal} from "../../widgets";
 
 export const BreedPage = () => {
 

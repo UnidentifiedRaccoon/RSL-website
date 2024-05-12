@@ -6,7 +6,6 @@ type LayoutProps = {
 }
 
 export const Layout: FC<LayoutProps> = ({children}) => {
-    console.log(children)
     return <div className={styles.layout}>
         <main className={styles.main}>
             {children}

@@ -10,7 +10,7 @@ export interface StrapiDataScheme<T> {
 
 export interface StrapObjectScheme<T> {
     data: StrapiDataScheme<T>
-    meta: {}
+    meta: object
 }
 
 export interface StrapiArrayScheme<T> {

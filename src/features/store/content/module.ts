@@ -1,11 +1,10 @@
+import type {PayloadAction} from '@reduxjs/toolkit'
 import {createSlice} from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
 import {AppDispatch, RootState} from "../store";
 import {ReleaseStatusEnum} from "../../types/strapi/components/common-enums/release-status";
 import {ModuleData} from "../../types/store/content/module";
 import {getModule} from "../../api/content/module";
 import {moduleParser} from "../../parsers/webservice-to-store/module";
-
 
 const initialState: ModuleData = {
     id: 0,
@@ -20,6 +19,7 @@ export const moduleState = createSlice({
     initialState,
     reducers: {
         updateModule: (state, {payload}: PayloadAction<ModuleData>) => {
+            state.id = payload.id
             state.title = payload.title
             state.description = payload.description
             state.status = payload.status
@@ -27,14 +27,14 @@ export const moduleState = createSlice({
         },
     },
 })
-export const { updateModule } = moduleState.actions
+export const {updateModule} = moduleState.actions
 export const selectModule = (state: RootState) => state.module
 export const loadModule = (id: number) => {
     return (dispatch: AppDispatch) => {
         return getModule(id).then((module) => {
             const parsed = moduleParser(module)
             dispatch(updateModule(parsed))
-            console.log({type: 'info', body: 'success loadModule'})
+            // console.log({type: 'info', body: 'success loadModule'})
         }).catch((err) => console.log({type: 'error', body: err}))
     }
 }

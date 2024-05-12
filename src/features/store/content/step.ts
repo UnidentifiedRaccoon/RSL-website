@@ -13,7 +13,7 @@ const initialState: StepData = {
     description: undefined,
     status: ReleaseStatusEnum.DEVELOP,
     type: StepTypesEnum.READ,
-    content: ''
+    content: [],
 }
 
 export const stepState = createSlice({
@@ -21,6 +21,7 @@ export const stepState = createSlice({
     initialState,
     reducers: {
         updateStep: (state, {payload}: PayloadAction<StepData>) => {
+            state.id = payload.id
             state.title = payload.title
             state.description = payload.description
             state.status = payload.status
@@ -30,7 +31,7 @@ export const stepState = createSlice({
     },
 })
 
-export const { updateStep } = stepState.actions
+export const {updateStep} = stepState.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectStep = (state: RootState) => state.step
@@ -40,7 +41,7 @@ export const loadStep = (id: number) => {
         return getStep(id).then((step) => {
             const parsed = stepParser(step)
             dispatch(updateStep(parsed))
-            console.log({type: 'info', body: 'success loadStep'})
+            // console.log({type: 'info', body: 'success loadStep'})
         }).catch((err) => console.log({type: 'error', body: err}))
     }
 }

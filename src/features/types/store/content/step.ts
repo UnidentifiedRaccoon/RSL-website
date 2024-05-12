@@ -7,5 +7,5 @@ export interface StepData {
     description?: string
     status?: ReleaseStatusEnum
     type?: StepTypesEnum
-    content?: string
+    content?: any[]
 }
