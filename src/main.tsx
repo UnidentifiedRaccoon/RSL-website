@@ -8,6 +8,7 @@ import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import {BreedPage, ErrorPage, StepPage} from "./pages";
 import {Provider} from "react-redux";
 import {store} from "./features/store/store";
+import {DictionaryPage} from "./pages/DictionaryPage";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,23 @@ const router = createBrowserRouter([
     {
         path: '/step/:id',
         element: <StepPage/>,
+    },
+    {
+        path: "/dictionary",
+        element: <DictionaryPage/>,
+        children: [
+            {
+                path: ':slug',
+                element: null,
+                children: [
+                    {
+                        path: ':word',
+                        element: null,
+
+                    },
+                ],
+            },
+        ],
     },
 ]);
 

@@ -1,16 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {configureStore} from '@reduxjs/toolkit'
 
 import moduleReducer from './content/module'
 import lectureReducer from './content/lecture'
 import stepReducer from './content/step'
 import breedReducer from './pages/breed'
+import dictionaryReducer from './pages/dictionary'
+import categoryReducer from './content/category'
 
 export const store = configureStore({
     reducer: {
+        dictionaryPage: dictionaryReducer,
         pageBreed: breedReducer,
         module: moduleReducer,
         lecture: lectureReducer,
         step: stepReducer,
+        category: categoryReducer,
     },
 })
 

@@ -1,0 +1,20 @@
+.link {
+    width: 200px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 8px 12px 10px;
+    background-color: #262626;
+    border-radius: 8px;
+    transition: 0.2s all;
+}
+
+.link:hover {
+    background-color: #000000;
+}
+
+.iconLink {
+    width: auto;
+}

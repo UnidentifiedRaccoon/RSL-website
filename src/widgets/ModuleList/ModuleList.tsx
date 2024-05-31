@@ -31,7 +31,7 @@ export const ModuleList = () => {
         progress={stabModuleProgress[index]}/></Grid>)
 
     return <Box className={styles.list}
-                paddingTop="100px"
+                paddingTop="60px"
                 display="flex"
                 alignItems="center"
     >

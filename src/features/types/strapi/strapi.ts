@@ -24,3 +24,7 @@ export interface StrapiArrayScheme<T> {
         }
     }
 }
+
+export interface StrapiSimpleResponceScheme<T> {
+    data: T
+}

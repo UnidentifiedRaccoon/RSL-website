@@ -1,0 +1,27 @@
+body {
+    background-color: rgba(245, 245, 245, 1);
+    overflow-x: hidden;
+}
+
+/* W3C standard
+   сейчас только для Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: transparent rgb(11, 107, 203);
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(11, 107, 203);
+    border-radius: 5px;
+    border: 3px solid transparent;
+}
