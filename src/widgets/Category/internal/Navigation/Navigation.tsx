@@ -1,8 +1,8 @@
 import cn from "classnames";
-import {Stack, Typography} from "@mui/joy";
+import {Typography} from "@mui/joy";
 import {useSelector} from "react-redux";
 import {Link, useMatch} from "react-router-dom";
-import BookIcon from "@mui/icons-material/Book";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 import {selectDictionaryPage} from "../../../../features/store/pages/dictionary";
 
 import styles from "./Navigation.module.css"
@@ -15,11 +15,11 @@ export const Navigation = () => {
     const {categories} = useSelector(selectDictionaryPage)
     if (!categories) return
     const currentCategoryIndex = categories.findIndex(category => category.slug === slug)
-    const prevCategory = categories[currentCategoryIndex - 1]
-    const nextCategory = categories[currentCategoryIndex + 1]
+    const prevCategory = currentCategoryIndex !== -1 && categories[currentCategoryIndex - 1]
+    const nextCategory = currentCategoryIndex !== -1 && categories[currentCategoryIndex + 1]
 
     return (
-        <Stack flexGrow='1' direction="row" justifyContent={"space-between"} width="100%">
+        <div className={styles.navigation}>
             {prevCategory &&
                 <Link className={styles.link} to={`/dictionary/${prevCategory.slug}`}>
                     <Typography sx={{color: 'white'}} fontSize={16} textAlign="center">
@@ -28,7 +28,7 @@ export const Navigation = () => {
                 </Link>
             }
             <Link className={cn(styles.link, styles.iconLink)} to={`/dictionary`}>
-                <BookIcon fontSize="large"/>
+                <MenuBookIcon fontSize="large"/>
             </Link>
             {nextCategory &&
                 <Link className={styles.link} to={`/dictionary/${nextCategory.slug}`}>
@@ -37,6 +37,6 @@ export const Navigation = () => {
                     </Typography>
                 </Link>
             }
-        </Stack>
+        </div>
     )
 }

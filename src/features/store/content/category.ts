@@ -3,6 +3,7 @@ import {AppDispatch, RootState} from "../store";
 import {categoryParser} from "../../parsers/strapi-to-store/category";
 import {CategoryScheme} from "../../types/simplified-strapi/collection-types/category";
 import {getCategory} from "../../api/content/category";
+import {getWordsBySubstring} from "../../api/feature/search";
 
 const initialState: CategoryScheme = {
     id: 0,
@@ -24,6 +25,7 @@ export const categoryState = createSlice({
             state.description = payload.description
             state.slug = payload.slug
             state.imageURL = payload.imageURL
+            state.order = payload.order
             state.words = payload.words
         },
     },
@@ -40,5 +42,22 @@ export const loadCategory = (slug: string) => {
         }).catch((err) => console.log({type: 'error', body: err}))
     }
 }
+
+export const loadSearchCategory = (substring: string) => {
+    return (dispatch: AppDispatch): Promise<void | CategoryScheme> => {
+        return getWordsBySubstring(substring).then((res) => {
+            const parsed = res.data
+            const category = {
+                ...initialState,
+                slug: 'search',
+                title: 'Поиск',
+                words: parsed
+            }
+            dispatch(updateCategory(category))
+            console.log({type: 'info', body: 'success findWord'})
+        }).catch((err) => console.log({type: 'error', body: err}))
+    }
+}
+
 
 export default categoryState.reducer

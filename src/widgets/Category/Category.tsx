@@ -1,10 +1,9 @@
-import {loadCategory, selectCategory} from "../../features/store/content/category";
+import {loadCategory, loadSearchCategory, selectCategory} from "../../features/store/content/category";
 import {useMatch, useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {selectDictionaryPage} from "../../features/store/pages/dictionary";
 import {Stack} from "@mui/joy";
-import {Description, Navigation} from "./internal";
+import {Navigation} from "./internal";
 import {Video} from "../../entities/Blocks";
 import {WordList} from "../WordList";
 import styles from "./Category.module.css"
@@ -15,25 +14,27 @@ export const Category = () => {
     const dispatch = useDispatch()
     const slug = matchCategory?.params.slug || matchWord?.params.slug
     const word = matchWord?.params.word
-    const {categories} = useSelector(selectDictionaryPage)
-    const cashedCategory = categories?.filter((category) => category.slug === slug)[0]
     const {words} = useSelector(selectCategory)
-    const currentVideoURL = words && words.find(x => x.slug === word)?.videoURL
+    const currentVideoURL = words && (words.find(x => x.slug === word)?.videoURL || words[0]?.videoURL)
     const navigate = useNavigate()
 
+
     useEffect(() => {
-        if (slug) {
+        if (slug && slug !== 'search') {
             loadCategory(slug)(dispatch).then((category) => {
                 if (category && category.words) {
                     navigate(`${slug}/${category.words[0].slug}`)
                 }
             })
+        } else if (slug === 'search' && word) {
+            loadSearchCategory(word)(dispatch)
         }
-    }, [dispatch, navigate, slug])
+    }, [dispatch, navigate, slug, word])
 
     return (
-        <Stack spacing={2} alignItems="center" justifyContent="center">
-            <Description>{cashedCategory?.description}</Description>
+        <Stack spacing={2} alignItems="center" justifyContent="center"
+               paddingTop="60px"
+        >
             <div className={styles.content}>
                 {currentVideoURL && <Video url={currentVideoURL}/>}
                 <WordList/>

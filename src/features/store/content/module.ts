@@ -34,7 +34,7 @@ export const loadModule = (id: number) => {
         return getModule(id).then((module) => {
             const parsed = moduleParser(module)
             dispatch(updateModule(parsed))
-            // console.log({type: 'info', body: 'success loadModule'})
+            console.log({type: 'info', body: 'success loadModule'})
         }).catch((err) => console.log({type: 'error', body: err}))
     }
 }

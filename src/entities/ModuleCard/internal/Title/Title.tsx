@@ -9,7 +9,7 @@ export const Title: FC<TitleProps> = ({title}) => {
     return (
         <Typography
             color="neutral"
-            level="h1"
+            level="h3"
             noWrap={false}
             variant="plain"
         >{title}</Typography>

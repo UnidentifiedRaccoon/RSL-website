@@ -41,7 +41,7 @@ export const loadStep = (id: number) => {
         return getStep(id).then((step) => {
             const parsed = stepParser(step)
             dispatch(updateStep(parsed))
-            // console.log({type: 'info', body: 'success loadStep'})
+            console.log({type: 'info', body: 'success loadStep'})
         }).catch((err) => console.log({type: 'error', body: err}))
     }
 }

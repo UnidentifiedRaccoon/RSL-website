@@ -19,6 +19,7 @@ export const WordList = () => {
                 borderRadius: '20px',
                 boxSizing: 'border-box',
                 boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
+                overflowY: 'hidden',
             }}
         >
             <Grid
@@ -26,8 +27,7 @@ export const WordList = () => {
                 spacing={{xs: 2, md: 2}}
                 columns={{xs: 4, sm: 8, md: 8}}
                 sx={{
-                    height: '260px',
-                    maxHeight: '50vw',
+                    maxHeight: '260px',
                     flexGrow: 1,
                     overflowY: 'scroll',
                     overflowX: 'hidden',

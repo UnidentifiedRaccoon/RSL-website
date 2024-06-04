@@ -21,6 +21,7 @@ export const CategoryList = () => {
              paddingTop="60px"
              display="flex"
              alignItems="center"
+             justifyContent="center"
         >
             <Grid
                 container

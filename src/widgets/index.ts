@@ -5,3 +5,6 @@ export {ContentBlock} from './ContentBlock';
 export {CategoryList} from './CategoryList';
 export {Category} from './Category';
 export {WordList} from './WordList';
+export {Search} from "./Search";
+export {NeiroPhotoLoader} from "./NeiroPhotoLoader";
+export {NeiroHistoryAccordion} from "./NeiroHistoryAccordion";

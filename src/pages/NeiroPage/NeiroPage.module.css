@@ -1,0 +1,25 @@
+.camera {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #262626;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.video {
+    border-radius: 6px;
+    width: 100%;
+}
+
+.captureButton {
+    z-index: 3;
+    bottom: 30px;
+    left: 20px;
+    position: absolute;
+}
+
+.photoLoader {
+    margin-bottom: 30px;
+}

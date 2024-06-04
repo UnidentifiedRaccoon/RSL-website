@@ -38,7 +38,7 @@ export const loadLecture = (id: number) => {
         return getLecture(id).then((lecture) => {
             const parsed = lectureParser(lecture)
             dispatch(updateLecture(parsed))
-            // console.log({type: 'info', body: 'success loadLecture'})
+            console.log({type: 'info', body: 'success loadLecture'})
         }).catch((err) => console.log({type: 'error', body: err.message}))
     }
 }

@@ -1,3 +1,17 @@
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .navigation {
+        flex-direction: column;
+    }
+}
+
+
 .link {
     width: 200px;
     text-decoration: none;
@@ -16,5 +30,6 @@
 }
 
 .iconLink {
+    margin: 0 auto;
     width: auto;
 }

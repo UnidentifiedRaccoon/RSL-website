@@ -9,6 +9,8 @@ export const Description: FC<PropsWithChildren> = ({children}) => {
             color="neutral"
             level="body-lg"
             variant="plain"
+            textAlign="center"
+            marginBottom="20px"
         >{children}</Typography>
     )
 }
