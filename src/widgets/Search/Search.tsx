@@ -14,7 +14,11 @@ export const Search = () => {
     const navigate = useNavigate();
 
     const handleSearchChange = useCallback<FormEventHandler<HTMLDivElement>>((event) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         findWords(event.target.value)(dispatch)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         setValue(event.target.value)
     }, [dispatch])
 

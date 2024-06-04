@@ -21,7 +21,7 @@ export const NeiroHistoryAccordion = () => {
                             <Typography sx={{color: 'white'}}>
                                 {hist.predictions && hist.predictions.map((predict) =>
                                     <>Жест "{predict.class}" <br/> - c
-                                        вероятностью {predict.confidence.toFixed(3)}% <br/></>
+                                        вероятностью {(predict.confidence * 100).toFixed(1)}% <br/></>
                                 )}
                                 {!hist.predictions.length &&
                                     <>Жест на изображении не распознан - попробуйте использовать другой снимок</>

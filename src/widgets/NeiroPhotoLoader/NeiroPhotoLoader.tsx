@@ -50,7 +50,8 @@ export const NeiroPhotoLoader = () => {
                 {currentHistoryItem &&
                     <NeiroResultInfo error={!currentHistoryItem.predictions.length}>
                         {currentHistoryItem.predictions && currentHistoryItem.predictions.map((predict) =>
-                            <>Жест "{predict.class}" <br/> - c вероятностью {predict.confidence.toFixed(3)}% <br/></>
+                            <>Жест "{predict.class}" <br/> - c
+                                вероятностью {(predict.confidence * 100).toFixed(1)}% <br/></>
                         )}
                         {!currentHistoryItem.predictions.length &&
                             <>Жест на изображении не распознан - попробуйте использовать другой снимок</>
