@@ -1,4 +1,4 @@
-export const WEBSERVICE_HOST = 'http://localhost:8080'
+export const WEBSERVICE_HOST = 'http://51.250.97.205:8080'
 export const WEBSERVICE_API_PREFIX = '/platform-api'
 export const MODULES = '/modules'
 export const LESSON = '/lessons'
