@@ -12,7 +12,7 @@ import {FrameBorder} from "../../entities";
 export const NeiroPage = () => {
     const videoRef = useRef<HTMLVideoElement>(null)
     const getVideo = useCallback(() => {
-        navigator.mediaDevices.getUserMedia({
+        navigator.mediaDevices && navigator.mediaDevices.getUserMedia({
             video: {width: 1920, height: 1080}
         }).then(stream => {
             const video = videoRef.current
@@ -26,7 +26,7 @@ export const NeiroPage = () => {
 
     useEffect(() => {
         getVideo()
-    }, [getVideo, videoRef])
+    }, [getVideo])
 
     const dispatch = useDispatch()
 

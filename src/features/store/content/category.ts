@@ -33,6 +33,7 @@ export const categoryState = createSlice({
 export const {updateCategory} = categoryState.actions
 export const selectCategory = (state: RootState) => state.category
 export const loadCategory = (slug: string) => {
+    console.log(loadCategory)
     return (dispatch: AppDispatch): Promise<void | CategoryScheme> => {
         return getCategory(slug).then((res) => {
             const parsed = categoryParser(res.data[0])

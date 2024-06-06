@@ -3,12 +3,16 @@ import {selectCategory} from "../../features/store/content/category";
 import {Box, Grid} from "@mui/joy";
 import {Word} from "./internal";
 import styles from "./WordList.module.css"
+import {useLocation} from "react-router-dom";
 
 
 export const WordList = () => {
     const {words, slug} = useSelector(selectCategory)
+    const substring = new URLSearchParams(useLocation().search).get('search')
+
     const wordElems = words?.map(word => <Grid xs={4} sm={4} md={4}
-                                               key={word.id}><Word href={`${slug}/${word.slug}`}>{word.spelling}</Word></Grid>)
+                                               key={word.id}><Word
+        href={`${slug}/${substring ? `${word.slug}?search=${substring}` : word.slug}`}>{word.spelling.charAt(0).toUpperCase() + word.spelling.slice(1)}</Word></Grid>)
     return (
         <Box
             maxHeight='300px'

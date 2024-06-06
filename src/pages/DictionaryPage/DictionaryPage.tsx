@@ -1,40 +1,28 @@
 import {Layout} from "../Layout";
 import {Category, CategoryList, Search} from "../../widgets";
-import {PageTitle} from "../../shared";
 import {Box} from "@mui/joy";
-import {useMatch} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {loadDictionaryPage, selectDictionaryPage} from "../../features/store/pages/dictionary";
+import {useDispatch} from "react-redux";
+import {loadDictionaryPage} from "../../features/store/pages/dictionary";
 import {useMount} from "react-use";
-import {Description} from "./internal";
-import {selectCategory} from "../../features/store/content/category";
+import {Title} from "./internal";
+import {useMatch} from "react-router-dom";
 
 export const DictionaryPage = () => {
-    const matchCategory = useMatch('dictionary/:slug')
-    const matchWord = useMatch('dictionary/:slug/:word')
-    const isCategoryOpen = Boolean(matchCategory) || Boolean(matchWord)
-    const slug = matchCategory?.params.slug || matchWord?.params.slug
-    const {categories} = useSelector(selectDictionaryPage)
-    const cashedCategory = useSelector(selectCategory)
-    const category = categories?.find((category) => category.slug === slug) || cashedCategory
+
     const dispatch = useDispatch()
     useMount(() => {
         loadDictionaryPage()(dispatch)
     })
 
+    const matchWord = useMatch('dictionary/:slug/:word')
 
     return (
         <Layout>
             <Box paddingTop="50px" width="100%">
-                <PageTitle>
-                    {isCategoryOpen ? category?.title : 'Словарик'}
-                </PageTitle>
-                {isCategoryOpen && category?.description &&
-                    <Description>{category?.description}</Description>
-                }
+                <Title/>
                 <Search/>
-                {!isCategoryOpen && <CategoryList/>}
-                {isCategoryOpen && <Category/>}
+                {!matchWord && <CategoryList/>}
+                {matchWord && <Category/>}
             </Box>
         </Layout>
     )

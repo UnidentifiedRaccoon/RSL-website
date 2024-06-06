@@ -1,30 +1,29 @@
-import {FormEventHandler, MouseEventHandler, useCallback, useState} from "react";
+import {FormEventHandler, MouseEventHandler, useCallback} from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {findWords, selectSearch} from "../../features/store/feature/search";
 import {Autocomplete, Button, FormControl} from "@mui/joy";
 import SearchIcon from "@mui/icons-material/Search";
 import styles from "./Search.module.css"
+import {loadSearchCategory} from "../../features/store/content/category";
 
 export const Search = () => {
-    const {words} = useSelector(selectSearch)
+    const {substring, words} = useSelector(selectSearch)
     const suggestions = words.map((word) => word.spelling)
-    const dispatch = useDispatch()
-    const [value, setValue] = useState('')
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const handleSearchChange = useCallback<FormEventHandler<HTMLDivElement>>((event) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         findWords(event.target.value)(dispatch)
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        setValue(event.target.value)
     }, [dispatch])
 
     const handleGoSearch = useCallback<MouseEventHandler>(() => {
-        navigate(`search/${value}`)
-    }, [navigate, value])
+        loadSearchCategory(substring)(dispatch).then(() => {
+            navigate(`search/${words[0].slug}?search=${substring}`)
+        })
+    }, [navigate, substring, words])
 
 
     return (

@@ -8,7 +8,6 @@ const bgColors = [""]
 
 export const CategoryList = () => {
     const {categories} = useSelector(selectDictionaryPage)
-
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     const categoryElements = [...categories]?.sort((a, b) => a.order - b.order).map((category, index) =>

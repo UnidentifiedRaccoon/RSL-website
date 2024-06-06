@@ -1,7 +1,10 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {Card, CardContent, CardOverflow} from "@mui/joy";
 import styles from "./CategoryCard.module.css"
 import {Description, Image, Title} from "./internal";
+import {loadCategory} from "../../features/store/content/category";
+import {MouseEventHandler, useCallback} from "react";
+import {useDispatch} from "react-redux";
 
 type CategoryCardProps = {
     slug: string
@@ -12,7 +15,20 @@ type CategoryCardProps = {
 }
 
 export const CategoryCard = ({title, description, imageURL, slug, bgColor}: CategoryCardProps) => {
-    return <Link className={styles.cardWrapper} to={`${slug}`}>
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const onClickHandler = useCallback<MouseEventHandler<HTMLAnchorElement>>((e) => {
+        e.preventDefault()
+        loadCategory(slug)(dispatch).then((category) => {
+            if (category && category.words) {
+                navigate(`${slug}/${category.words[0].slug}`)
+            }
+        })
+    }, [dispatch, navigate, slug])
+
+
+    return <Link className={styles.cardWrapper} to={`${slug}`} onClick={onClickHandler}>
         <Card
             className={styles.card}
             color="neutral"

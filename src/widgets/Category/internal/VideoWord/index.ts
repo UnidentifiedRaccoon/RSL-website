@@ -1,0 +1,1 @@
+export {VideoWord} from './VideoWord'

@@ -38,15 +38,8 @@ const router = createBrowserRouter([
         element: <DictionaryPage/>,
         children: [
             {
-                path: ':slug',
+                path: ':slug/:word',
                 element: null,
-                children: [
-                    {
-                        path: ':word',
-                        element: null,
-
-                    },
-                ],
             },
         ],
     },
