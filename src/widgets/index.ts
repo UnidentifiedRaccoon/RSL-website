@@ -8,3 +8,4 @@ export {WordList} from './WordList';
 export {Search} from "./Search";
 export {NeiroPhotoLoader} from "./NeiroPhotoLoader";
 export {NeiroHistoryAccordion} from "./NeiroHistoryAccordion";
+export {SideMenu} from "./SideMenu";

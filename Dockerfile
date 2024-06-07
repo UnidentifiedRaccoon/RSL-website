@@ -1,5 +1,5 @@
 # Use an official node runtime as a parent image
-FROM node:20.13-alpine
+FROM node:20.13-alpine AS build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -16,11 +16,18 @@ COPY . .
 # Build the app for production
 RUN npm run build
 
-# Install a simple HTTP server to serve the static files
-RUN npm install -g serve
+## Install a simple HTTP server to serve the static files
+#RUN npm install -g serve
+#
+## Set the command to run the app
+#CMD ["serve", "-s", "dist"]
+#
+## Expose port 5000
+#EXPOSE 3000
 
-# Set the command to run the app
-CMD ["serve", "-s", "dist"]
+FROM nginx:alpine as prod
+COPY --from=build /app/dist/ /usr/share/nginx/html
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-# Expose port 5000
-EXPOSE 3000
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

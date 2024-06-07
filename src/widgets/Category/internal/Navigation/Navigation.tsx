@@ -2,12 +2,12 @@ import cn from "classnames";
 import {Typography} from "@mui/joy";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useMatch, useNavigate} from "react-router-dom";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
 import {selectDictionaryPage} from "../../../../features/store/pages/dictionary";
 
 import styles from "./Navigation.module.css"
 import {useCallback} from "react";
 import {loadCategory} from "../../../../features/store/content/category";
+import {MenuBookRounded} from "@mui/icons-material";
 
 
 export const Navigation = () => {
@@ -46,7 +46,7 @@ export const Navigation = () => {
                 </Link>
             }
             <Link className={cn(styles.link, styles.iconLink)} to={`/dictionary`}>
-                <MenuBookIcon fontSize="large"/>
+                <MenuBookRounded fontSize="large"/>
             </Link>
             {nextCategory &&
                 <Link className={styles.link} to={`/dictionary/${nextCategory.slug}`}

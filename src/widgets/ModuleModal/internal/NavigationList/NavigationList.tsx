@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {Box, CircularProgress, List, ListItem, ListItemButton, ListItemContent, Stack, Typography} from "@mui/joy";
-import {KeyboardArrowRight} from "@mui/icons-material";
+import {KeyboardArrowRightRounded} from "@mui/icons-material";
 import {capitalizeFirstLetter} from "../../../../features/libs/helpers/string";
 
 import styles from "./NavigationList.module.css"
@@ -39,7 +39,7 @@ export const NavigationList: FC<LecturesListProps> = ({prefixUrl, items}) => {
                         </Stack>
                         <ListItemContent><Typography
                             fontSize={18}>{capitalizeFirstLetter({value: item.title})}</Typography></ListItemContent>
-                        <KeyboardArrowRight/>
+                        <KeyboardArrowRightRounded/>
                     </ListItemButton>
                 </ListItem>
             </Link>

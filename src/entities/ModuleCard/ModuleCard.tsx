@@ -24,7 +24,7 @@ export const ModuleCard: FC<ModuleCardProps> = ({title, id, imgSrc, progress, is
             orientation="vertical"
             size="lg"
             variant="soft"
-            sx={{bgcolor: 'rgb(255,250,237)'}}
+            sx={{bgcolor: 'rgb(255,250,237)', height: "100%"}}
         >
             <CardOverflow variant="soft" sx={{bgcolor: 'rgb(255,228,201)'}}>
                 <Image imgSrc={imgSrc}/>

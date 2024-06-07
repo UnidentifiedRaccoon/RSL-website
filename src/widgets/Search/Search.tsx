@@ -3,9 +3,9 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {findWords, selectSearch} from "../../features/store/feature/search";
 import {Autocomplete, Button, FormControl} from "@mui/joy";
-import SearchIcon from "@mui/icons-material/Search";
 import styles from "./Search.module.css"
 import {loadSearchCategory} from "../../features/store/content/category";
+import {SearchRounded} from "@mui/icons-material";
 
 export const Search = () => {
     const {substring, words} = useSelector(selectSearch)
@@ -43,7 +43,7 @@ export const Search = () => {
                 freeSolo
                 disableClearable
                 options={suggestions}
-                startDecorator={<SearchIcon/>}
+                startDecorator={<SearchRounded/>}
                 onSelect={handleSearchChange}
                 endDecorator={<Button
                     type="submit"

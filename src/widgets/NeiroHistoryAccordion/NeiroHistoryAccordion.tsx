@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {selectNeiro} from "../../features/store/feature/neiro";
 import styles from "./NeiroHistoryAccordion.module.css"
 import {FrameBorder} from "../../entities";
-import {KeyboardArrowDown} from "@mui/icons-material";
+import {KeyboardArrowDownRounded} from "@mui/icons-material";
 
 export const NeiroHistoryAccordion = () => {
     const {history} = useSelector(selectNeiro)
@@ -16,7 +16,7 @@ export const NeiroHistoryAccordion = () => {
                 return (
                     <Accordion className={styles.accordion}>
                         <AccordionSummary
-                            indicator={<KeyboardArrowDown fontSize="medium"/>}
+                            indicator={<KeyboardArrowDownRounded fontSize="medium"/>}
                             className={cn(styles.summary, {[styles.error]: !hist.predictions.length})}>
                             <Typography sx={{color: 'white'}}>
                                 {hist.predictions && hist.predictions.map((predict) =>
